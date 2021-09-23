@@ -1,9 +1,13 @@
 const path = require("path");
 
 module.exports = {
-	entry: "./src/index.js",
+	entry: {
+		app: "./src/index.js",
+		print: "./src/print.js",
+	},
 	output: {
-		filename: "bundle.js",
+		// !除此以外，还需要去 index.html 里面修改旧的名称，如何解决？用 HtmlWebpackPlugin 插件
+		filename: "[name].bundle.js", //根据入口起点定义的名称，动态产生 bundle 名称
 		path: path.resolve(__dirname, "dist"),
 	},
 	module: {
