@@ -20,6 +20,14 @@ module.exports = {
 		static: "./dist", // 将 dist 下的文件 serve 到 localhost://8080 下
 		hot: true,
 	},
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
+		],
+	},
 	plugins: [
 		new CleanWebpackPlugin(), //构建前先清理 dist 文件夹，从而只会看到构建后生成的文件，没有新文件
 		new WebpackManifestPlugin(options), //在 dist 文件夹内创建一个 json 文件，包含了源文件与相应构建输出文件的映射

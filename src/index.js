@@ -3,6 +3,7 @@ import "./style.css";
 import Icon from "./icon.png";
 import Data from "./data.xml";
 import printMe from "./print.js";
+import "./styles.css";
 
 function component() {
 	let element = document.createElement("div");
