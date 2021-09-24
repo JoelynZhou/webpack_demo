@@ -7,7 +7,10 @@ const webpack = require("webpack");
 const options = {};
 
 module.exports = {
-	mode: "production", //设置 mode 实现 tree shaking，可以去除 bundle 里面的 dead code(未引用代码),减少 budle 体积
+	/**
+	 * 设置 mode 实现 tree shaking，可以去除 bundle 里面的 dead code(未引用代码),减少 budle 体积
+	 */
+	mode: "production", //启用 minifaction(代码压缩)和 tree shaking
 	// mode: "development", //确保 bundle 是未压缩的版本
 	// optimization: {
 	// 	usedExports: true,
