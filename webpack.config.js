@@ -14,6 +14,9 @@ module.exports = {
 	 * source map 将编译后的代码映射回原始代码，可以更容易的追踪 error 和 warning
 	 */
 	devtool: "inline-source-map", //!注意：此配置仅用于示例，不要用于生产环境！！
+	devServer: {
+		static: "./dist",
+	},
 	plugins: [
 		new CleanWebpackPlugin(), //构建前先清理 dist 文件夹，从而只会看到构建后生成的文件，没有新文件
 		new WebpackManifestPlugin(options), //在 dist 文件夹内创建一个 json 文件，包含了源文件与相应构建输出文件的映射
