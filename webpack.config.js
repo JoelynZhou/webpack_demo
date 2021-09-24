@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
 	entry: {
@@ -7,7 +8,9 @@ module.exports = {
 		print: "./src/print.js",
 	},
 	plugins: [
+		new CleanWebpackPlugin(), //构建前先清理 dist 文件夹，从而只会看到构建后生成的文件，没有新文件
 		new HtmlWebpackPlugin({
+			//创建全新的 index.html 文件，将所有的 bundle 自动添加到 html 中，替换原有文件
 			title: "管理输出",
 		}),
 	],
