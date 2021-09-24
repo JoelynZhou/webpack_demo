@@ -7,7 +7,7 @@ const webpack = require("webpack");
 const options = {};
 
 module.exports = {
-	mode: "development",
+	mode: "development", //确保 bundle 是未压缩的版本
 	entry: {
 		app: "./src/index.js",
 		// print: "./src/print.js", //删掉 print.js 的入口起点，因为 index.js 中已经引用了它
@@ -66,5 +66,8 @@ module.exports = {
 				use: ["xml-loader"],
 			},
 		],
+	},
+	optimization: {
+		usedExports: true,
 	},
 };
