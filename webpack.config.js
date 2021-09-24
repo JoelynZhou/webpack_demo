@@ -7,7 +7,12 @@ const webpack = require("webpack");
 const options = {};
 
 module.exports = {
-	mode: "development", //确保 bundle 是未压缩的版本
+	mode: "production", //设置 mode 实现 tree shaking，可以去除 bundle 里面的 dead code(未引用代码),减少 budle 体积
+	// mode: "development", //确保 bundle 是未压缩的版本
+	// optimization: {
+	// 	usedExports: true,
+	// },
+
 	entry: {
 		app: "./src/index.js",
 		// print: "./src/print.js", //删掉 print.js 的入口起点，因为 index.js 中已经引用了它
@@ -66,8 +71,5 @@ module.exports = {
 				use: ["xml-loader"],
 			},
 		],
-	},
-	optimization: {
-		usedExports: true,
 	},
 };
