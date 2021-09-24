@@ -1,9 +1,8 @@
 import _ from "lodash";
-import "./style.css";
 import Icon from "./icon.png";
 import Data from "./data.xml";
 import printMe from "./print.js";
-import "./styles.css";
+import "./style.css";
 
 function component() {
 	let element = document.createElement("div");
@@ -14,6 +13,7 @@ function component() {
 
 	let myIcon = new Image();
 	myIcon.src = Icon;
+	myIcon.setAttribute("width", 200);
 	element.appendChild(myIcon);
 
 	console.log(Data);
