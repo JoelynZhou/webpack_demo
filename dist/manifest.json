@@ -1,0 +1,5 @@
+{
+  "app.js": "autoapp.bundle.js",
+  "print.js": "autoprint.bundle.js",
+  "index.html": "autoindex.html"
+}
