@@ -29,6 +29,7 @@ module.exports = {
 		// !除此以外，还需要去 index.html 里面修改旧的名称，如何解决？用 HtmlWebpackPlugin 插件
 		filename: "[name].bundle.js", //根据入口起点定义的名称，动态产生 bundle 名称
 		path: path.resolve(__dirname, "dist"),
+		publicPath: "/", //确保文件资源能正确 serve 在 http://localhost:3000 下
 	},
 	module: {
 		rules: [
