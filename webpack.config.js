@@ -2,13 +2,15 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+const webpack = require("webpack");
+
 const options = {};
 
 module.exports = {
 	mode: "development",
 	entry: {
 		app: "./src/index.js",
-		print: "./src/print.js",
+		// print: "./src/print.js", //删掉 print.js 的入口起点，因为 index.js 中已经引用了它
 	},
 	/**
 	 * source map 将编译后的代码映射回原始代码，可以更容易的追踪 error 和 warning
@@ -16,6 +18,7 @@ module.exports = {
 	devtool: "inline-source-map", //!注意：此配置仅用于示例，不要用于生产环境！！
 	devServer: {
 		static: "./dist", // 将 dist 下的文件 serve 到 localhost://8080 下
+		hot: true,
 	},
 	plugins: [
 		new CleanWebpackPlugin(), //构建前先清理 dist 文件夹，从而只会看到构建后生成的文件，没有新文件
@@ -24,6 +27,7 @@ module.exports = {
 			//创建全新的 index.html 文件，将所有的 bundle 自动添加到 html 中，替换原有文件
 			title: "管理输出",
 		}),
+		new webpack.HotModuleReplacementPlugin(),
 	],
 	output: {
 		// !除此以外，还需要去 index.html 里面修改旧的名称，如何解决？用 HtmlWebpackPlugin 插件
