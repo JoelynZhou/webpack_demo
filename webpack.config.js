@@ -15,7 +15,7 @@ module.exports = {
 	 */
 	devtool: "inline-source-map", //!注意：此配置仅用于示例，不要用于生产环境！！
 	devServer: {
-		static: "./dist",
+		static: "./dist", // 将 dist 下的文件 serve 到 localhost://8080 下
 	},
 	plugins: [
 		new CleanWebpackPlugin(), //构建前先清理 dist 文件夹，从而只会看到构建后生成的文件，没有新文件
