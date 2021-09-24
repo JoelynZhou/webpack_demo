@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+const options = {};
 
 module.exports = {
 	entry: {
@@ -9,6 +11,7 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(), //构建前先清理 dist 文件夹，从而只会看到构建后生成的文件，没有新文件
+		new WebpackManifestPlugin(options), //在 dist 文件夹内创建一个 json 文件，包含了源文件与相应构建输出文件的映射
 		new HtmlWebpackPlugin({
 			//创建全新的 index.html 文件，将所有的 bundle 自动添加到 html 中，替换原有文件
 			title: "管理输出",
