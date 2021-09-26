@@ -4,6 +4,8 @@ import Data from "./data.xml";
 import printMe from "./print.js";
 import { cube } from "./math.js";
 import "./style.css";
+const { file, parse } = require("./globals.js");
+console.log("file, parse:", file, parse);
 
 function component() {
 	let element = document.createElement("div");
