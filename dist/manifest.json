@@ -1,5 +1,7 @@
 {
   "app.js": "/app.bundle.js",
+  "another.js": "/another.bundle.js",
+  "486.bundle.js": "/486.bundle.js",
   "icon.png": "/b0a1ea45561f711f549f315fe6b354d2.png",
   "my-font.ttf": "/2806dada0a36f554b5e667b1feade395.ttf",
   "index.html": "/index.html"

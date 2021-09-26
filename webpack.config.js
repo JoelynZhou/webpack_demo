@@ -16,9 +16,17 @@ module.exports = {
 	// 	usedExports: true,
 	// },
 
+	/**
+	 * entry 里面分离 module 是最简单、直观分离代码的方式
+	 * 但存在一些缺点：
+	 * 1. 如果入口 chunk 之间包含一些重复的模块，name 重复模块会被引入到各个 bundle 中，比如：index 和 another-module 中都引入了 lodash，造成了重复引用
+	 * 2. 不够灵活，不能动态将核心应用程序逻辑中的代码拆分出来
+	 * 方案：可以使用 SplitChunksPlugin 插件来移除重复模块
+	 */
 	entry: {
 		app: "./src/index.js",
 		// print: "./src/print.js", //删掉 print.js 的入口起点，因为 index.js 中已经引用了它
+		another: "./src/another-module.js",
 	},
 	/**
 	 * source map 将编译后的代码映射回原始代码，可以更容易的追踪 error 和 warning
@@ -50,6 +58,11 @@ module.exports = {
 		filename: "[name].bundle.js", //根据入口起点定义的名称，动态产生 bundle 名称
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/", //确保文件资源能正确 serve 在 http://localhost:3000 下
+	},
+	optimization: {
+		splitChunks: {
+			chunks: "all",
+		},
 	},
 	module: {
 		rules: [
