@@ -19,6 +19,7 @@ module.exports = {
 	entry: {
 		app: "./src/index.js",
 		// print: "./src/print.js", //删掉 print.js 的入口起点，因为 index.js 中已经引用了它
+		polyfills: "./src/polyfill.js",
 	},
 	/**
 	 * source map 将编译后的代码映射回原始代码，可以更容易的追踪 error 和 warning
