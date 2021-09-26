@@ -77,6 +77,14 @@ module.exports = {
 				test: /\.xml$/,
 				use: ["xml-loader"],
 			},
+			// {
+			// 	/**
+			// 	 * 一般 this 指向 window 对象，但当模块运行在 CommonJS 上下文时，this 指向 module.exports。
+			// 	 * 此时，需要通过 imports-loader 覆盖 this 的执行
+			// 	 */
+			// 	test: require.resolve("./src/index.js"),
+			// 	use: "imports-loader?wrapper=window",
+			// },
 		],
 	},
 };
