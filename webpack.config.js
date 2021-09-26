@@ -44,6 +44,10 @@ module.exports = {
 			title: "管理输出",
 		}),
 		new webpack.HotModuleReplacementPlugin(),
+		new webpack.ProvidePlugin({
+			//ProvidePlugin 插件实现将模块依赖改为一个全局变量依赖
+			_: "lodash",
+		}),
 	],
 	output: {
 		// !除此以外，还需要去 index.html 里面修改旧的名称，如何解决？用 HtmlWebpackPlugin 插件

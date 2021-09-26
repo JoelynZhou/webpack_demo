@@ -1,4 +1,4 @@
-import _ from "lodash";
+// import _ from "lodash";
 import Icon from "./icon.png";
 import Data from "./data.xml";
 import printMe from "./print.js";
